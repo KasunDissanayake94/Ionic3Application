@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterPageModule } from './pages/register/register.module';
 import { AboutPageModule } from './pages/about/about.module';
+import { SearchPageModule } from './pages/search/search.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule ,
     RegisterPageModule ,
     AboutPageModule ,
-    HttpClientModule
+    HttpClientModule ,
+    SearchPageModule
   ],
   providers: [
     StatusBar,

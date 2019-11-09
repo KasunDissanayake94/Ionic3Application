@@ -13,8 +13,8 @@ export class AboutPage implements OnInit {
   constructor( private userService: UserServiceService) { }
 
   ngOnInit() {
-    this.userService.getAllArticles().subscribe(res =>  {
-      this.items = res;
+    this.userService.getAllArtists().subscribe(res =>  {
+      this.items = res.artists.artist;
     });
   }
 
