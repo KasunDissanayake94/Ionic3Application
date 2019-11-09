@@ -15,6 +15,7 @@
     <ion-card-title>{{item.artist}}</ion-card-title>
   </ion-card-header>
   <img [src]="item.image[2]['#text']">
+  <ion-button color="primary" (click)="viewMore(item.artist, item.name)">View More</ion-button>
 
 </ion-card>
 </ion-content>

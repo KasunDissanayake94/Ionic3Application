@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+  { path: 'track', loadChildren: './pages/track/track.module#TrackPageModule' },
 ];
 
 @NgModule({

@@ -27,4 +27,11 @@ export class UserServiceService {
             return res;
         }));
     }
+
+    getMusicTrackByNameAndArtist(artist, trackName) {
+        const url = this.baseUrl + '?method=track.getInfo&api_key=e10c7683cae1474051fb275de242c610&artist=' + artist + '&track=' + trackName + '&format=json';
+        return this.http.get(url).pipe(map((res: any) => {
+            return res;
+        }));
+    }
 }
