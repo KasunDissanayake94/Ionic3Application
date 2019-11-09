@@ -17,7 +17,13 @@ export class UserServiceService {
     getAllArtists() {
         const url = this.baseUrl + '?method=library.getartists&api_key=' + this.apiKey + '&user=joanofarctan&format=json';
         return this.http.get(url).pipe(map((res: any) => {
-            console.log('res', res);
+            return res;
+        }));
+    }
+
+    getMusicTrackByName(name: string) {
+        const url = this.baseUrl + '?method=track.search&track=' + name + '&api_key=' + this.apiKey + '&format=json';
+        return this.http.get(url).pipe(map((res: any) => {
             return res;
         }));
     }

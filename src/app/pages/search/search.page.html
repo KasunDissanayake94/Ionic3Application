@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search</ion-title>
+    <ion-title>Search Music Tracks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Searchbar with a custom debounce -->
+  <!-- Animated Searchbar -->
 
+  <ion-searchbar animated [(ngModel)]="searchName" (keyup)="searchMusicTrack($event)"></ion-searchbar>
+<ion-card *ngFor="let item of items">
+  <ion-card-header>
+    <ion-card-subtitle>{{item.name}}</ion-card-subtitle>
+    <ion-card-title>{{item.artist}}</ion-card-title>
+  </ion-card-header>
+  <img [src]="item.image[2]['#text']">
+
+</ion-card>
 </ion-content>
