@@ -17,6 +17,7 @@ export class HomePage {
     login() {
       if (this.password == null || this.username == null) {
         this.credentialsError();
+        // tslint:disable-next-line:triple-equals
       } else if (this.password == 'password' && this.username == 'kasun') {
         this.navCtrl.navigateRoot('search');
         this.successToast();
