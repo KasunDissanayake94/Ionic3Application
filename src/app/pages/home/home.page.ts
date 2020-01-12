@@ -15,13 +15,14 @@ export class HomePage {
   ) {}
 
     login() {
-      // tslint:disable-next-line:triple-equals
-    if (this.password == 'password' && this.username == 'kasun') {
-      this.navCtrl.navigateRoot('search');
-      this.successToast();
-    } else {
-      this.failToast();
-    }
+      if (this.password == null || this.username == null) {
+        this.credentialsError();
+      } else if (this.password == 'password' && this.username == 'kasun') {
+        this.navCtrl.navigateRoot('search');
+        this.successToast();
+      } else {
+        this.failToast();
+      }
     }
 
     register() {
@@ -31,6 +32,15 @@ export class HomePage {
   async failToast() {
     const toast = await this.toastController.create({
       message: 'Login Failed',
+      duration: 2000,
+      color: 'danger'
+    });
+    toast.present();
+  }
+
+  async credentialsError() {
+    const toast = await this.toastController.create({
+      message: 'Please fill the Fields',
       duration: 2000,
       color: 'danger'
     });
