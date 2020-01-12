@@ -5,44 +5,44 @@ import {TrackPage} from "../track/track.page";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss'],
+    selector: 'app-search',
+    templateUrl: './search.page.html',
+    styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
 
-  searchName: string ;
-  items: any;
-  itemId: string;
+    searchName: string ;
+    items: any;
+    itemId: string;
 
-  constructor(private userService: UserServiceService ,
-              private router: Router
-  ) { }
+    constructor(private userService: UserServiceService ,
+                private router: Router
+    ) { }
 
-  ngOnInit() {
-    // search tracks if the search bar is empty
-    this.userService.getMusicTrackByName('a').subscribe( res => {
-      this.items = res.results.trackmatches.track;
-      this.itemId = res.results.mbid;
-      console.log(this.items);
-    });
-  }
+    ngOnInit() {
+        // search tracks if the search bar is empty
+        this.userService.getMusicTrackByName('a').subscribe( res => {
+            this.items = res.results.trackmatches.track;
+            this.itemId = res.results.mbid;
+            console.log(this.items);
+        });
+    }
 
 
 // search tracks with the search name
-  searchMusicTrack(key: any) {
-    this.searchName  = key.target.value;
-    this.userService.getMusicTrackByName(this.searchName).subscribe( res => {
-      this.items = res.results.trackmatches.track;
-      this.itemId = res.results.mbid;
-      console.log(this.items);
-    });
-  }
+    searchMusicTrack(key: any) {
+        this.searchName  = key.target.value;
+        this.userService.getMusicTrackByName(this.searchName).subscribe( res => {
+            this.items = res.results.trackmatches.track;
+            this.itemId = res.results.mbid;
+            console.log(this.items);
+        });
+    }
+// view More tracks
+    viewMore(artist: any, trackName: any) {
+        const param = { artistName : artist , track: trackName };
+        this.router.navigate(['track', param]);
 
-  viewMore(artist: any, trackName: any) {
-    const param = { artistName : artist , track: trackName };
-    this.router.navigate(['track', param]);
 
-
-  }
+    }
 }
