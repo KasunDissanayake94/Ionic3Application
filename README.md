@@ -1,4 +1,4 @@
-# Ionic3Application
+# Ionic4 Application
 
 Steps to start a Ionic Project 
 ======================================
